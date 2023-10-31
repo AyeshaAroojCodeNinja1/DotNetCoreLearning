@@ -1,10 +1,11 @@
 ﻿using DotNetCoreLearningTask;
+using DotNetCoreLearningTask.Interface;
 
 class Program
 {
     static void Main(string[] args)
     {
-        Calculator calculator = new Calculator();
+        ICalculate calculator = null;      
         while (true)
         {
             Console.WriteLine("Menu:");
@@ -30,16 +31,20 @@ class Program
                                 switch (operation)
                                 {
                                     case 1:
-                                        Console.WriteLine($"Result: {calculator.Add(num1, num2)}");
+                                        calculator = new Add();
+                                        Console.WriteLine($"Result: {calculator.Calculate(num1, num2)}");
                                         break;
                                     case 2:
-                                        Console.WriteLine($"Result: {calculator.Subtract(num1, num2)}");
+                                        calculator = new Subtract();
+                                        Console.WriteLine($"Result: {calculator.Calculate(num1, num2)}");
                                         break;
                                     case 3:
-                                        Console.WriteLine($"Result: {calculator.Multiply(num1, num2)}");
+                                        calculator = new Multiply();
+                                        Console.WriteLine($"Result: {calculator.Calculate(num1, num2)}");
                                         break;
                                     case 4:
-                                        Console.WriteLine($"Result: {calculator.Divide(num1, num2)}");
+                                        calculator = new Divide();
+                                        Console.WriteLine($"Result: {calculator.Calculate(num1, num2)}");
                                         break;
                                 }
                             }

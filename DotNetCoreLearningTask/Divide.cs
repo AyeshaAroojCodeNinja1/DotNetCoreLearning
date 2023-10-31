@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DotNetCoreLearningTask.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,31 +7,11 @@ using System.Threading.Tasks;
 
 namespace DotNetCoreLearningTask
 {
-    public class Calculator
+    public class Divide : ICalculate
     {
-        public int Add(int a, int b)
+        public int Calculate(int a, int b)
         {
-            return a + b;
-        }
-
-        public int Subtract(int a, int b)
-        {
-            return a - b;
-        }
-
-        public int Multiply(int a, int b)
-        {
-            int result = 0;
-            for (int i = 0; i < b; i++)
-            {
-                result += a;
-            }
-            return b < 0 ? -result : result;
-        }
-
-        public double Divide(int a, int b)
-        {
-            if (a == 0)
+            if(a == 0)
                 return 0;
             if (b == 0)
                 throw new DivideByZeroException("Division by zero is not allowed.");
